@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int linear(int arr[], int n, int key){
+    for(int i=0;i<n;i++)
+        if(arr[i]==key) return i;
+    return -1;
+}
+
+int binary(int arr[], int n, int key){
+    int l=0,h=n-1;
+    while(l<=h){
+        int m=(l+h)/2;
+        if(arr[m]==key) return m;
+        else if(arr[m]<key) l=m+1;
+        else h=m-1;
+    }
+    return -1;
+}
+
+int main(){
+    int arr[]={1,2,3,4,5};
+    printf("Linear: %d\n",linear(arr,5,3));
+    printf("Binary: %d\n",binary(arr,5,3));
+}
